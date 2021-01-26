@@ -367,9 +367,11 @@ class LgRemoteControl extends LitElement {
                     ` : html`
                   <div class="grid-container-source">
                       <button class="btn_source ripple" @click=${() => this._select_source("Netflix")}><ha-icon style="heigth: 70%; width: 70%;" icon="mdi:netflix"/></button>
-                      <button class="btn_source ripple" @click=${() => this._select_source("Amazon Prime Video")}><ha-icon style="heigth: 70%; width: 70%;" icon="mdi:amazon"/></button>
-                      <button class="btn_source ripple" @click=${() => this._select_source("Disney+")}>${LgRemoteControl.disneyIcon}</button>
-                      <button class="btn_source ripple" @click=${() => this._select_source("DAZN")}>${LgRemoteControl.daznIcon}</button>
+                      <button class="btn_source ripple" @click=${() => this._select_source("Amazon Prime Video")}><ha-icon style="heigth: 70%; width: 70%;" icon="mdi:youtube"/></button>
+                      <button class="btn_source ripple" @click=${() => this._select_source("Amazon Prime Video")}><ha-icon style="heigth: 70%; width: 70%;" icon="si:hbo"/></button>
+                      <button class="btn_source ripple" @click=${() => this._select_source("Amazon Prime Video")}><ha-icon style="heigth: 70%; width: 70%;" icon="si:vodafone"/></button>
+                      //<button class="btn_source ripple" @click=${() => this._select_source("Disney+")}>${LgRemoteControl.disneyIcon}</button>
+                      //<button class="btn_source ripple" @click=${() => this._select_source("DAZN")}>${LgRemoteControl.daznIcon}</button>
                   </div>`}
 <!-- ################################# SOURCE BUTTONS END ################################# -->
 

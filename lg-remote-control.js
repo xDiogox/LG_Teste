@@ -342,11 +342,11 @@ class LgRemoteControl extends LitElement {
                       <button class="btn ripple item_sound" @click=${() => this._show_sound_output = true}><ha-icon icon="mdi:speaker"/></button>
                       <button class="btn ripple item_up" style="background-color: transparent;" @click=${() => this._button("Input.Up")}><ha-icon icon="mdi:chevron-up"/></button>
                       <button class="btn ripple item_input" @click=${() => this._show_inputs = true}><ha-icon icon="mdi:import"/></button>
-                      <button class="btn ripple item_2_sx" style="background-color: transparent;" @click=${() => this._button("LEFT")}><ha-icon icon="mdi:chevron-left"/></button>
-                      <button class="btn bnt_ok ripple item_2_c" style="border: solid 2px ${backgroundColor}"  @click=${() => this._button("ENTER")}>OK</button>
-                      <button class="btn ripple item_right" style="background-color: transparent;" @click=${() => this._button("RIGHT")}><ha-icon icon="mdi:chevron-right"/></button>
-                      <button class="btn ripple item_back" @click=${() => this._button("BACK")}><ha-icon icon="mdi:undo-variant"/></button>
-                      <button class="btn ripple item_down" style="background-color: transparent;" @click=${() => this._button("DOWN")}><ha-icon icon="mdi:chevron-down"/></button>
+                      <button class="btn ripple item_2_sx" style="background-color: transparent;" @click=${() => this._button("Input.Left")}><ha-icon icon="mdi:chevron-left"/></button>
+                      <button class="btn bnt_ok ripple item_2_c" style="border: solid 2px ${backgroundColor}"  @click=${() => this._button("Input.Select")}>OK</button>
+                      <button class="btn ripple item_right" style="background-color: transparent;" @click=${() => this._button("Input.Right")}><ha-icon icon="mdi:chevron-right"/></button>
+                      <button class="btn ripple item_back" @click=${() => this._button("Input.Back")}><ha-icon icon="mdi:undo-variant"/></button>
+                      <button class="btn ripple item_down" style="background-color: transparent;" @click=${() => this._button("Input.Down")}><ha-icon icon="mdi:chevron-down"/></button>
                       <button class="btn ripple item_exit" @click=${() => this._button("EXIT")}>EXIT</button>
                     </div>
 <!-- ################################# DIRECTION PAD END ################################# -->
@@ -399,9 +399,9 @@ class LgRemoteControl extends LitElement {
 
 <!-- ################################# MEDIA CONTROL ################################# -->
                  <div class="grid-container-media-control" >
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._command("media.controls/play")}><ha-icon icon="mdi:play"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._command("media.controls/pause")}><ha-icon icon="mdi:pause"/></button>
-                      <button class="btn-flat flat-low ripple"  @click=${() => this._command("media.controls/stop")}><ha-icon icon="mdi:stop"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._command("media_play_pause")}><ha-icon icon="mdi:play"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._command("media_play_pause")}><ha-icon icon="mdi:pause"/></button>
+                      <button class="btn-flat flat-low ripple"  @click=${() => this._command("media_player.media_stop")}><ha-icon icon="mdi:stop"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() => this._command("media.controls/rewind")}><ha-icon icon="mdi:skip-backward"/></button>
                       <button class="btn-flat flat-low ripple" style="color: red;" @click=${() => this._command("media.controls/Record")}><ha-icon icon="mdi:record"/></button>
                       <button class="btn-flat flat-low ripple"  @click=${() => this._command("media.controls/fastForward")}><ha-icon icon="mdi:skip-forward"/></button>
@@ -442,9 +442,9 @@ class LgRemoteControl extends LitElement {
     }
 
     _command(command) {
-        this.hass.callService("webostv", "command", {
+        this.hass.callService("media_player", command, {
             entity_id: this.config.entity,
-            command: command
+            //command: command
         });
     }
 
@@ -949,4 +949,3 @@ class LgRemoteControl extends LitElement {
 }
 
 customElements.define('lg-remote-control', LgRemoteControl);
-
